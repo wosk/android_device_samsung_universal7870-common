@@ -95,12 +95,9 @@ PRODUCT_COPY_FILES += \
 
 # Camera
 PRODUCT_PACKAGES += \
+    android.hardware.camera.common@1.0-helper \
+    android.hardware.camera.provider@2.5-impl \
     android.hardware.camera.provider@2.5-service \
-    camera.device@1.0-impl \
-    camera.device@3.2-impl \
-    camera.device@3.3-impl \
-    camera.device@3.4-impl \
-    camera.device@3.5-impl \
     libion_exynos \
     Snap
 
@@ -239,7 +236,8 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service
 
 # Thermal
 PRODUCT_PACKAGES += \
@@ -254,7 +252,10 @@ PRODUCT_COPY_FILES += \
 
 # Shims
 PRODUCT_PACKAGES += \
-    libexynoscamera_shim
+    libcamera_client_shim \
+    libexynoscamera_shim \
+    libExynosOMX_shim \
+    libui_shim
 
 # USB
 PRODUCT_PACKAGES += \
