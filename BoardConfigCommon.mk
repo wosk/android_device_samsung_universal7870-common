@@ -71,7 +71,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/exynos7870
 
 # HIDL
 DEVICE_MANIFEST_FILE := $(LOCAL_PATH)/configs/manifest.xml
-DEVICE_MATRIX_FILE := $(LOCAL_PATH)/configs/compatibility_matrix.xml
+# DEVICE_MATRIX_FILE := $(LOCAL_PATH)/configs/compatibility_matrix.xml
 
 # Use these flags if the board has a ext4 partition larger than 2gb
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -85,7 +85,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 209715200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 39845888
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2871279104
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 54618000000
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 54618209280
 BOARD_VENDORIMAGE_PARTITION_SIZE := 434596224
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
@@ -188,7 +188,15 @@ BOARD_VNDK_VERSION := current
 
 # Shims
 TARGET_LD_SHIM_LIBS += \
-    /vendor/lib/libexynoscamera.so|libexynoscamera_shim.so
+    /vendor/lib/libcamera_client.so|/vendor/lib/libcamera_client_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.AVC.Decoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.AVC.Encoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.MPEG4.Decoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.MPEG4.Encoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.VP8.Decoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.VP8.Encoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/omx/libOMX.Exynos.WMV.Decoder.so|/vendor/lib/libui_shim.so \
+    /vendor/lib/libexynoscamera.so|/vendor/lib/libexynoscamera_shim.so
 
 # Wifi
 BOARD_HAVE_SAMSUNG_WIFI := true
