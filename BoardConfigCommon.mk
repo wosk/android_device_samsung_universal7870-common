@@ -153,9 +153,14 @@ CHARGING_ENABLED_PATH := "/sys/class/power_supply/battery/batt_lp_charging"
 # OMX
 TARGET_OMX_LEGACY_RESCALING := true
 
-# Recovery
-BOARD_HAS_DOWNLOAD_MODE := true
-TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.recovery
+ifeq ($(WITH_TWRP),true)
+    # TWRP
+    include $(LOCAL_PATH)/twrp.mk
+else
+    # Recovery
+    BOARD_HAS_DOWNLOAD_MODE := true
+    TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/etc/fstab.recovery
+endif
 
 # Renderscript
 OVERRIDE_RS_DRIVER := libRSDriverArm.so
